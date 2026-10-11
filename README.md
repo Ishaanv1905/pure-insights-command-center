@@ -4,6 +4,8 @@ An admin dashboard for the custom analytics portal that replaced Tableau Server:
 
 Case Study 3: Tasks 1 and 2 (full-stack app + real-time alerting) and Task 3 (Snowflake cost allocation SQL suite, in [`snowflake/`](snowflake/README.md)).
 
+**Task 3 contents of this case study are in the Snowflake folder. It includes the simulated snowflake data, sql queries for cloud credit consumption, and the results.**
+
 | Part     | Stack                                                                                                                    |
 | -------- | ------------------------------------------------------------------------------------------------------------------------ |
 | Backend  | Node.js 22, Express 5, SQLite (Node's built-in `node:sqlite`, no native build), `ws` WebSockets, JWT cookie auth, bcrypt |

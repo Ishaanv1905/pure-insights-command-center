@@ -1,0 +1,12 @@
+{
+  "name": "pure-insights-feeder",
+  "version": "1.0.0",
+  "description": "Replays the case-study CSV into the Command Center ingest API (no dependencies)",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "feed": "node feeder.js",
+    "feed:fast": "node feeder.js --interval 0 --batch 100",
+    "edge-cases": "node edgeCases.js"
+  }
+}

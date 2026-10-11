@@ -1,0 +1,9 @@
+node_modules
+client/dist
+server/data
+coverage
+data
+package-lock.json
+docs/data-quality.md
+snowflake/data
+snowflake/output

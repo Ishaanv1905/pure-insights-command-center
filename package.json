@@ -1,0 +1,37 @@
+{
+  "name": "pure-insights-command-center",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Admin command center for the analytics portal: report health, orphaned reports, real-time alerts and cost attribution",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "setup": "node scripts/check-node.js && npm install && npm --prefix server install && npm --prefix client install",
+    "build": "node scripts/check-node.js && npm --prefix client run build",
+    "start": "node scripts/check-node.js && npm --prefix server start",
+    "dev:server": "node scripts/check-node.js && npm --prefix server run dev",
+    "dev:client": "node scripts/check-node.js && npm --prefix client run dev",
+    "test": "node scripts/check-node.js && npm --prefix server test",
+    "feed": "node feeder/feeder.js",
+    "feed:fast": "node feeder/feeder.js --interval 0 --batch 100",
+    "edge-cases": "node feeder/edgeCases.js",
+    "data-quality": "npm --prefix server run data-quality",
+    "seed": "node scripts/check-node.js && npm --prefix server run seed",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:coverage": "node scripts/check-node.js && npm --prefix server run test:coverage",
+    "check": "npm run lint && npm run format:check && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10"
+  },
+  "type": "module"
+}

@@ -1,0 +1,29 @@
+# One command: docker compose up --build   then open http://localhost:3000
+# The feeder runs as a second container and replays the CSV into the app.
+# Secrets below are for local demos only.
+
+services:
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      NODE_ENV: production
+      JWT_SECRET: local-demo-secret-change-me
+      INGEST_API_KEY: local-demo-ingest-key
+      SEED_DEMO_USERS: 'true'
+    volumes:
+      - storage:/app/storage
+
+  feeder:
+    build: .
+    depends_on:
+      app:
+        condition: service_healthy
+    command: ['node', 'feeder/feeder.js', '--url', 'http://app:3000', '--interval', '500']
+    environment:
+      INGEST_API_KEY: local-demo-ingest-key
+    restart: 'no'
+
+volumes:
+  storage:
